@@ -11,10 +11,17 @@
                 height: 100%;
                 overflow: hidden;
                 font-family: 'Poppins', sans-serif;
-                background-image: url("wp.jpeg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
+            }
+
+            .wp0{
+                background-image: url("wp.jpeg");
+            }
+
+            .wp1{
+                background-image: url("wp2.jpeg");
             }
 
             button{
@@ -41,10 +48,11 @@
                 top: 64px;
                 box-shadow: 0 0 16px black;
                 border-radius: 8px;
+                background-color: rgba(178, 178, 178, 0.5)
             }
         </style>
     </head>
-    <body style="text-align: center">
+    <body style="text-align: center" class="wp0">
       <script>
         function makepaintbox(){
             new WinBox({
@@ -58,11 +66,24 @@
               height: "600px"
             });
         }
+
+         var currentWP = 0;
+
+         setInterval(function () {
+             if (currentWP == 0)
+             {
+                currentWP = 1;
+                document.body.className = "wp1";
+             } else if (currentWP == 1){
+                currentWP = 0;
+                document.body.className = "wp0";
+             }
+         }, 5000); 
       </script>
       <div class="back">
           <h1>THIS IS A FILLER WEBSITE!</h1>
           <h2>THE FULL WEBSITE COMES OUT ON THE 08/24/2023 (MM/DD/YYYY)</h2>
-          <h3>CREDIT TO KIPPA FOR BETA TESTING AND BACKGROUND</h3>
+          <h3>CREDIT TO KIPPA FOR BETA TESTING AND BACKGROUNDS</h3>
           <button onclick="makepaintbox()">OPEN MSPAINT</button>
       </div>
     </body>
