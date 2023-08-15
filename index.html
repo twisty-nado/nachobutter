@@ -11,6 +11,11 @@
                 height: 100%;
                 overflow: hidden;
                 font-family: 'Poppins', sans-serif;
+                background-image: url("wp.jpeg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                backdrop-filter: blur(2px);
             }
 
             .wb-close{
@@ -24,19 +29,22 @@
     </head>
     <body style="text-align: center">
       <script>
-        new WinBox({
-          title: "paint",
-          background: "#000",
-          border: 4,
-          url: "https://jspaint.app",
-          x: "center",
-          y: "center",
-          width: "800px",
-          height: "600px"
-        });
+        function makepaintbox(){
+            new WinBox({
+              title: "paint",
+              background: "#000",
+              border: 4,
+              url: "https://jspaint.app",
+              x: "center",
+              y: "center",
+              width: "800px",
+              height: "600px"
+            });
+        }
       </script>
       <h1>THIS IS A FILLER WEBSITE!</h1>
       <h2>THE FULL WEBSITE COMES OUT ON THE 08/24/2023 (MM/DD/YYYY)</h2>
+      <h3>CREDIT TO KIPPA FOR BETA TESTING AND BACKGROUND</h3>
       <button onclick="makepaintbox()">open mspaint</button>
     </body>
 </html>
