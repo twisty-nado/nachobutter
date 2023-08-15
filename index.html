@@ -26,6 +26,16 @@
                 background-image: url("wp2.jpeg");
                 transition: ease-in 1s;
             }
+            
+            .wp2{
+                background-image: url("wp3.jpeg");
+                transition: ease-in 1s;
+            }
+
+            .wp3{
+                background-image: url("wp4.jpeg");
+                transition: ease-in 1s;
+            }
 
             button{
                 border: solid 2px #aaa;
@@ -78,6 +88,12 @@
                 currentWP = 1;
                 document.body.className = "wp1";
              } else if (currentWP == 1){
+                currentWP = 2;
+                document.body.className = "wp2";
+             } else if (currentWP == 2){
+                currentWP = 3;
+                document.body.className = "wp3";
+             } else if (currentWP == 3){
                 currentWP = 0;
                 document.body.className = "wp0";
              }
