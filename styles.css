@@ -1,366 +1,225 @@
-#selectable{
-    width: 75px;
-    height: auto;
-    background-color: none;
-}
+@keyframes windowopen{
+                from {
+                transform: perspective(2000px) rotateX(-25deg) scale(92%);
+                opacity: 0;
+            }
 
-.ds-selected {
+            to {
+                transform: rotateY(0deg) scale(100%);
+                opacity: 1;
+            }
+            }
 
-}
+            @keyframes windowclose{
+                from {
+                    transform: rotateY(0deg) scale(100%);
+                    opacity: 1;
+                }
+                to {
+                transform: perspective(2000px) rotateX(25deg) scale(92%);
+                opacity: 0;
+            }
 
-    .ds-selected img {
-        filter: saturate(150%);
-        image-rendering: pixelated;
-    }
+            }
 
-    .ds-selected div {
-        background-color: firebrick;
-        outline: 1px dotted #000;
-        outline-offset: -1px;
-    }
+            .b-header{
+                background: linear-gradient(55deg, transparent 1%, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0.1) 30%, rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.1) 55%, transparent 57%, rgba(255, 255, 255, 0.1) 70%, transparent 72%);
+                color: black;
+                text-shadow: 0 0 8px white;
+            }
 
-.ds-selector {
-    background: none;
-    outline: 1px dotted #fff;
-    outline-offset: -1px;
-}
+            .box{
+                background: rgba(162, 177, 199, 0.6);
+                backdrop-filter: blur(2px);
+                border-radius: 0px;
+                border: none;
+                animation: windowopen .4s;
+            }
 
-#block {
-    background-color: #7b7d7b;
-    box-shadow: 0 1px #fff;
-    width: 100%;
-    height: 1px;
-}
+            .taskbar{
+                background: rgba(162, 177, 199, 0.6) linear-gradient(55deg, transparent 1%, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0.1) 30%, rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.1) 55%, transparent 57%, rgba(255, 255, 255, 0.1) 70%, transparent 72%);
+                backdrop-filter: blur(2px);
+                border-top: 1px solid black;
+            }
 
-#desktop{
-    width: 100%;
-    height: calc(100% - 29px);
-}
+            .box:not(.max){
+                background: rgba(162, 177, 199, 0.6);
+                backdrop-filter: blur(2px);
+                border-radius: 6px;
+                border: 1px solid black;
+                box-shadow: 0 0 24px black;
+            }
 
-#tbar {
-    position: absolute;
-    width: 100%;
-    height: 29px;
-    bottom: 0;
-    background-color: #c0c0c0;
-    box-shadow: inset 0px 2px #fff;
-}
+            .box:not(.max) .b-close{
+                margin-right: 6px;
+            }
 
-#start {
-    width: 60px;
-    min-width: 0px;
-    margin-left: 2px;
-    margin-top: 4px;
-    font-weight: bold;
-    background-image: url("Assets/start-button.png");
-    background-repeat: no-repeat;
-    background-position: 6px 4px;
-}
+            .b-close{
+                background-size: contain;
+                position: relative;
+                margin-right: 0px;
+                margin-bottom: 3px;
+                width: 42px;
+                height: 17px;
+            }
+            .b-close:hover{
+                filter: brightness(130%);
+            }
+            .b-close:active{
+                filter: brightness(70%);
+            }
+            .b-max{
+                background-size: contain;
+                position: relative;
+                margin-bottom: 3px;
+                width: 26px;
+                height: 17px;
+            }
+            .b-max:hover{
+                filter: brightness(130%);
+            }
+            .b-max:active{
+                filter: brightness(70%);
+            }
+            .b-min{
+                background-size: contain;
+                position: relative;
+                margin-bottom: 3px;
+                width: 25px;
+                height: 17px;
+            }
+            .b-min:hover{
+                filter: brightness(130%);
+            }
+            .b-min:active{
+                filter: brightness(70%);
+            }
+            .box:not(.max) .b-max{
+                background-size: contain;
+                position: relative;
+                width: 26px;
+                height: 17px;
+            }
+            .box:not(.max) .b-max:hover{
+                filter: brightness(130%);
+            }
+            .box:not(.max) .b-close:active{
+                filter: brightness(70%);
+            }
 
-.wb-full{
-    display: none;
-}
+            .b-body{
+                background-color: white;
+            }
 
-#startMenu {
-    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
-    width: 200px;
-    height: 400px;
-    background-color: #c0c0c0;
-    position: absolute;
-    bottom: 29px;
-    display: none;
-    z-index: 10000000000000000000000000000000000
-}
+            .box:not(.focus) .b-close{
+                background-image: url("inactive/close2-button.png");
+            }
+            .box:not(.focus) .b-max{
+                background-image: url("inactive/res-Button.png");
+            }
+            .box:not(.focus) .b-min{
+                background-image: url("inactive/min-button.png");
+            }
+            .box:not(.max):not(.focus) .b-max{
+                background-image: url("inactive/max-button.png");
+            }
+            .box:not(.no-max) .b-close {
+                background-image: url("close-button.png");
+            }
+            .box:not(.no-max):not(.focus) .b-close {
+                background-image: url("inactive/close-button.png");
+            }
+            #startButton:hover{
+                background-image: url('startHover.png');
+                background-size: contain; 
+                background-repeat: no-repeat; 
+                background-position: center;
+            }
 
-.active {
-    box-shadow: inset -1px -1px #fff,inset 1px 1px #0a0a0a,inset -2px -2px #dfdfdf,inset 2px 2px grey;
-}
+            .taskbarIcon{
+                background-size: 32px; 
+                background-repeat: no-repeat; 
+                background-position: center;
+                position: absolute;
+                top: 0
+            }
 
-#startLabel {
-    background: linear-gradient(180deg, darkred 62%, red 100%);
-    width: 25px;
-    height: calc(100% - 8px);
-    margin-top: 4px;
-    margin-left: 4px;
-}
+            .box:not(.smalltitle) .b-header{
+                height: 52px;
+                line-height: 52px;
+            }
 
-#startInner{
-    width: calc(100% - 38px);
-    height: calc(100% - 8px);
-    background-color: none;
-    position:absolute;
-    left: 33px;
-    top: 4px;
-}
+            .box:not(.smalltitle) .b-body{
+                top: 52px
+            }
 
-#startOption {
-    font-family: "Pixelated MS Sans Serif";
-    background-color: none;
-    width: 100%;
-    height: 35px;
-    background-repeat: no-repeat;
-    background-position: 2px 2px;
-    text-align: left;
-    line-height: 35px;
-    font-size: 11px;
-}
+            .box:not(.smalltitle) .b-close, .b-max, .b-min{
+                margin-bottom: 16px;
+            }
+            
+            .b-tab{
+                position: absolute;
+                left: 12px;
+                bottom: 0;
+                width: 207px;
+                height: 29px;
+                cursor: default;
+            }
+            
+            .b-newtab{
+                position: absolute;
+                left: 127px;
+                bottom: 0;
+                width: 207px;
+                height: 29px;
+                cursor: default;
+            }
 
-.shutdownI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/shut_down_normal-0.png");
-    background-size: 36px;
-    image-rendering: pixelated;
-}
+            .b-newtab:hover{
+                filter: brightness(110%);
+            }
 
-.logoffI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/key_win-4.png");
-    background-size: 36px;
-    image-rendering: pixelated;
-}
+            .b-bl{
+                position: absolute;
+                left: 6px;
+                bottom: 6px;
+                width: 780px;
+                height: 26px;
+                min-width: 780px;
+                background-size: contain;
+                cursor: default;
+            }
 
-.runI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/application_hourglass_small-3.png");
-    background-size: 36px;
-    image-rendering: pixelated;
-}
-.helpI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/help_book_small-4.png");
-    background-size: 36px;
-    image-rendering: pixelated;
-}
-.findI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/search_file-1.png");
-    background-size: 32px;
-    image-rendering: pixelated;
-}
-.settingsI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/settings_gear-3.png");
-    background-size: 36px;
-    image-rendering: pixelated;
-}
-.documentsI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-1.png");
-    background-size: 32px;
-    image-rendering: pixelated;
-}
-.favI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/directory_favorites-4.png");
-    background-size: 32px;
-    image-rendering: pixelated;
-}
-.programsI {
-    background-image: url("https://media.discordapp.net/attachments/1087076597347139664/1087109440769101875/Screenshot_4.png");
-    background-size: 32px;
-    image-rendering: pixelated;
-}
-.paintI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/paint_file-3.png");
-    background-size: 32px;
-    image-rendering: pixelated;
-}
-.wupdateI {
-    background-image: url("https://win98icons.alexmeub.com/icons/png/windows_update_large-4.png");
-    background-size: 32px;
-    image-rendering: pixelated;
-}
+            #selectable{
+                width: 76px; 
+                margin-top: 8px; 
+                height: 110px; 
+                background: none;
+            }
 
-p {
-    font-family: "Pixelated MS Sans Serif";
-    font-size: 11px;
-}
+            #selectable:hover{
+                border-radius: 3px;
+                box-shadow: 0 0 1px #a0fcff;
+                background: rgba(112, 162, 185, 0.425);
+            }
 
-button{
-    font-size: 11px;
-}
+            #startButton{
+                width: 50px; 
+                height: 38px; 
+                margin-top: 1px; 
+                background-image: url('startDefault.png'); 
+                background-size: contain; 
+                background-repeat: no-repeat; 
+                background-position: center;
+            }
 
-:root {
-    /* Color */
-    --text-color: #222222;
-    --surface: #c0c0c0;
-    --button-highlight: #ffffff;
-    --button-face: #dfdfdf;
-    --button-shadow: #808080;
-    --window-frame: #0a0a0a;
-    --dialog-blue: #000080;
-    --dialog-blue-light: #1084d0;
-    --dialog-gray: #808080;
-    --dialog-gray-light: #b5b5b5;
-    --link-blue: #0000ff;
-    /* Spacing */
-    --element-spacing: 8px;
-    --grouped-button-spacing: 4px;
-    --grouped-element-spacing: 6px;
-    --radio-width: 12px;
-    --checkbox-width: 13px;
-    --radio-label-spacing: 6px;
-    --range-track-height: 4px;
-    --range-spacing: 10px;
-    /* Some detailed computations for radio buttons and checkboxes */
-    --radio-total-width-precalc: var(--radio-width) + var(--radio-label-spacing);
-    --radio-total-width: calc(var(--radio-total-width-precalc));
-    --radio-left: calc(-1 * var(--radio-total-width-precalc));
-    --radio-dot-width: 4px;
-    --radio-dot-top: calc(var(--radio-width) / 2 - var(--radio-dot-width) / 2);
-    --radio-dot-left: calc( -1 * (var(--radio-total-width-precalc)) + var(--radio-width) / 2 - var( --radio-dot-width ) / 2 );
-    --checkbox-total-width-precalc: var(--checkbox-width) + var(--radio-label-spacing);
-    --checkbox-total-width: calc(var(--checkbox-total-width-precalc));
-    --checkbox-left: calc(-1 * var(--checkbox-total-width-precalc));
-    --checkmark-width: 7px;
-    --checkmark-top: 3px;
-    --checkmark-left: 3px;
-    /* Borders */
-    --border-width: 1px;
-    --border-raised-outer: inset -1px -1px var(--window-frame), inset 1px 1px var(--button-highlight);
-    --border-raised-inner: inset -2px -2px var(--button-shadow), inset 2px 2px var(--button-face);
-    --border-sunken-outer: inset -1px -1px var(--button-highlight), inset 1px 1px var(--window-frame);
-    --border-sunken-inner: inset -2px -2px var(--button-face), inset 2px 2px var(--button-shadow);
-    /* Window borders flip button-face and button-highlight */
-    --border-window-outer: inset -1px -1px var(--window-frame), inset 1px 1px var(--button-face);
-    --border-window-inner: inset -2px -2px var(--button-shadow), inset 2px 2px var(--button-highlight);
-    /* Field borders (checkbox, input, etc) flip window-frame and button-shadow */
-    --border-field: inset -1px -1px var(--button-highlight), inset 1px 1px var(--button-shadow), inset -2px -2px var(--button-face), inset 2px 2px var(--window-frame);
-    /* Tabs */
-    --border-tab: inset -1px 0 var(--window-frame), inset 1px 1px var(--button-face), inset -2px 0 var(--button-shadow), inset 2px 2px var(--button-highlight)
-}
-
-.winbox:not(.max) .wb-header {
-    cursor: default;
-    background-color: #000080;
-    height: 20px;
-    line-height: 20px;
-    font-family: "Poppins";
-    font-size: 10px;
-    width: calc(100% - 7px);
-    margin: 3px;
-}
-
-.wb-header {
-    cursor: default;
-    background: linear-gradient(90deg,navy,#1084d0);
-    height: 20px;
-    line-height: 20px;
-    font-family: "Poppins";
-    font-size: 10px;
-    width: 100%;
-    margin: 0px;
-}
-
-.wb-icon{
-    width: 16px;
-    height: 14px;
-    cursor: default;
-    margin-top: 2px;
-    left: -4px;
-    position: relative;
-}
-
-.wb-drag {
-    cursor: default;
-}
-
-.wb-title {
-    cursor: default;
-    height: 20px;
-    line-height: 20px;
-    font-family: "Poppins";
-    font-weight: bold;
-    font-size: 11px;
-    left: -8px;
-    position: relative;
-}
-
-.winbox:not(.max) .wb-title {
-    cursor: default;
-    height: 20px;
-    line-height: 20px;
-    font-family: "Poppins";
-    font-weight: bold;
-    font-size: 11px;
-}
-
-.winbox:not(.max) .wb-body {
-    top: 26px;
-    margin: 4px;
-    background-color: #c0c0c0;
-}
-
-.wb-body {
-    top: 20px;
-    margin: 0px;
-    background-color: #c0c0c0;
-}
-
-.winbox:not(.max) {
-    background-color: #c0c0c0;
-    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
-}
-
-.wb-close {
-    width: 16px;
-    height: 14px;
-    background-image: url("Assets/close.svg");
-    background-size: 8px;
-    background-position-x: 4px;
-    background-position-y: 3px;
-    margin-right: 3px;
-    margin-top: 3px;
-    background-color: #c0c0c0;
-    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
-}
-
-    .wb-close:active {
-        box-shadow: inset -1px -1px #fff,inset 1px 1px #0a0a0a,inset -2px -2px #dfdfdf,inset 2px 2px grey;
-    }
-
-.winbox:not(.max) .wb-max {
-    width: 16px;
-    height: 14px;
-    background-image: url("Assets/maximize.svg");
-    background-size: 9px;
-    background-position-x: 3px;
-    background-position-y: 2px;
-    background-color: #c0c0c0;
-    margin-right: 2px;
-    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
-}
-
-.winbox:not(.max) .wb-max:active {
-    box-shadow: inset -1px -1px #fff,inset 1px 1px #0a0a0a,inset -2px -2px #dfdfdf,inset 2px 2px grey;
-}
-
-.winbox:not(.focus) .wb-header {
-    background: linear-gradient(90deg,grey,#b5b5b5);
-}
-
-.winbox:not(.focus) .wb-title{
-    background: none;
-}
-
-.wb-max {
-    width: 16px;
-    height: 14px;
-    background-image: url("Assets/restore.svg");
-    background-size: 8px;
-    background-position-x: 3px;
-    background-position-y: 2px;
-    background-color: #c0c0c0;
-    margin-right: 2px;
-    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
-}
-.wb-max:active {
-    box-shadow: inset -1px -1px #fff,inset 1px 1px #0a0a0a,inset -2px -2px #dfdfdf,inset 2px 2px grey;
-}
-
-.wb-min {
-    width: 16px;
-    height: 14px;
-    background-image: url("Assets/minimize.svg");
-    background-size: 6px;
-    background-position-y: 8px;
-    background-position-x: 4px;
-    background-color: #c0c0c0;
-    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
-}
-
-.wb-min:active {
-    box-shadow: inset -1px -1px #fff,inset 1px 1px #0a0a0a,inset -2px -2px #dfdfdf,inset 2px 2px grey;
-}
+            #startMenu{
+                width: 406px;
+                height: 508px;
+                position: absolute;
+                top: -508px;
+                border-top-right-radius: 8px;
+                border-top-left-radius: 8px;
+                background: rgba(162, 177, 199, 0.6) linear-gradient(55deg, transparent 1%, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0.1) 30%, rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.1) 55%, transparent 57%, rgba(255, 255, 255, 0.1) 70%, transparent 72%);
+                backdrop-filter: blur(2px);
+            }
