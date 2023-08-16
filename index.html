@@ -9,6 +9,11 @@
         <link rel="stylesheet" href="https://unpkg.com/7.css">
         <title>Twisty Nado</title>
         <style>
+            @font-face {
+                font-family: "notsegoeui";
+                src: url("notsegoeui.ttf");
+            }
+            
             html, body{
                 width: 100%;
                 height: 100%;
@@ -39,10 +44,9 @@
                 transition: ease-in 1s;
             }
 
-            button{
-                border: solid 2px #aaa;
-                background-color: #ddd;
-                font-family: 'Poppins', sans-serif;
+            .back{
+                padding: 4px;
+                text-align: center;
             }
         </style>
     </head>
@@ -66,7 +70,7 @@
           function makeinfobox(){
             var newbox = new box({
               title: "info",
-              html: '<div class="back"><h1>THIS IS A FILLER WEBSITE!</h1><h2>THE FULL WEBSITE COMES OUT ON THE 08/24/2023 (MM/DD/YYYY)</h2><h3>CREDIT TO KIPPA FOR BETA TESTING AND BACKGROUNDS</h3><button onclick="makepaintbox()">OPEN MSPAINT</button><button onclick="chrome()">OPEN CHROME</button></div>',
+              html: '<div class="back"><h2>THIS IS A FILLER WEBSITE!</h2><h3>THE FULL WEBSITE COMES OUT ON THE 08/24/2023 (MM/DD/YYYY)</h3><h4>CREDIT TO KIPPA FOR BETA TESTING AND BACKGROUNDS</h4><button onclick="makepaintbox()">OPEN MSPAINT</button><button onclick="chrome()">OPEN CHROME</button><button onclick="errorRAM()">OPEN ERROR</button></div>',
               x: "center",
               y: "64px",
               width: "980px",
