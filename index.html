@@ -5,6 +5,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
         <title>Twisty Nado</title>
         <style>
             html, body{
@@ -43,14 +44,6 @@
                 font-family: 'Poppins', sans-serif;
             }
 
-            .wb-close{
-                
-            }
-            
-            .wb-min{
-                display: none;
-            }
-
             .back{
                 backdrop-filter: blur(8px); 
                 position: absolute; 
@@ -70,8 +63,6 @@
         function makepaintbox(){
             new WinBox({
               title: "paint",
-              background: "#000",
-              border: 4,
               url: "https://jspaint.app",
               x: "center",
               y: "center",
