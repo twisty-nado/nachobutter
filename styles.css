@@ -231,7 +231,7 @@ button{
 
 .wb-header {
     cursor: default;
-    background: linear-gradient(90deg,red,firebrick);
+    background: linear-gradient(90deg,navy,#1084d0);
     height: 20px;
     line-height: 20px;
     font-family: "Poppins";
