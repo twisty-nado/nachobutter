@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <script src="winbox.js"></script>
+        <script src="2004dwm.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
@@ -67,7 +67,11 @@
               x: "center",
               y: "center",
               width: "800px",
-              height: "600px"
+              height: "600px",
+                class: ["winver", "no-min", "no-max", "no-resize", "smalltitle", "longertitle"],
+                onclose: function(force){
+                        return !force && !windowClose(this.id, newbox);
+                },
             });
         }
 
@@ -89,6 +93,13 @@
                 document.body.className = "wp0";
              }
          }, 5000); 
+
+          function windowClose(id, box){
+                document.getElementById(id).style.animation = "windowclose .4s";
+                setTimeout(() => {
+                    box.close(true);
+                }, 300);
+            }
       </script>
       <div class="back">
           <h1>THIS IS A FILLER WEBSITE!</h1>
