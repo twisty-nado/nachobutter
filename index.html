@@ -46,7 +46,7 @@
             }
         </style>
     </head>
-    <body style="text-align: center" class="wp0">
+    <body style="text-align: center" class="wp0" onload="makeinfobox()">
       <script>
         function makepaintbox(){
             var newbox = new box({
@@ -63,14 +63,14 @@
             });
         }
 
-          function makepaintbox(){
+          function makeinfobox(){
             var newbox = new box({
               title: "info",
               html: "<div class="back"><h1>THIS IS A FILLER WEBSITE!</h1><h2>THE FULL WEBSITE COMES OUT ON THE 08/24/2023 (MM/DD/YYYY)</h2><h3>CREDIT TO KIPPA FOR BETA TESTING AND BACKGROUNDS</h3><button onclick="makepaintbox()">OPEN MSPAINT</button><button onclick="chrome()">OPEN CHROME</button></div>",
               x: "center",
-              y: "center",
-              width: "800px",
-              height: "600px",
+              y: "64px",
+              width: "980px",
+              height: "240px",
                 class: ["winver", "no-min", "no-max", "no-resize", "no-close", "smalltitle", "longertitle"],
                 onclose: function(force){
                         return !force && !windowClose(this.id, newbox);
