@@ -75,6 +75,52 @@
             });
         }
 
+          function errorRAM(){
+                var error = new Audio("sounds/Windows Exclamation.wav");
+                error.play()
+
+                var newbox = new box("Microhard Windows", {
+                    html: '<img src="shell32/shell32_161.ico" draggable="false" style="position: absolute; width: 36px; height: 36px; margin: 10px"><h2 class="instruction instruction-primary" style="margin: 10px; position: relative; left: 48px; width: 260px">Your computer is low on memory</h2><p style="margin: 10px; position: relative; left: 48px; width: 260px">To restore enough memory for programs to work correctly, save your files and then close or restart all open programs.</p><footer style="text-align: right; position: absolute; bottom: 0; background-color: #eeeeee; width: 100%; height: 44px"><button style="position: relative; top: 10px; right: 10px">The other unfortunately broken OK button</button></footer>',
+                    x: "center",
+                    y: "center",
+                    width: "350",
+                    height: "180",
+                    icon: "shell32/shell32_161.ico",
+                    class: ["ramError", "no-min", "no-max", "no-resize", "smalltitle", "longertitle"],
+                    onclose: function(force){
+                        return !force && !windowClose(this.id, newbox);
+                    },
+                });
+            }
+
+            function chrome(){
+                var newbox = new box(" ", {
+                    url: "google.html",
+                    x: "center",
+                    y: "center",
+                    width: "1000",
+                    height: "600",
+                    class: ["chrome", "longertitle"],
+                    onclose: function(force){
+                        return !force && !windowClose(this.id, newbox);
+                    },
+                });
+                newbox.addControl({
+                    index: 0,
+                    class: "b-tab",
+                    image: "tab.png",
+                });
+                newbox.addControl({
+                    index: 0,
+                    class: "b-newtab",
+                    image: "newtab.png",
+                    click: function(){
+                        errorRAM()
+                        newbox.close()
+                    }
+                });
+            }
+
          var currentWP = 0;
 
          setInterval(function () {
