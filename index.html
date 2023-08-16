@@ -44,6 +44,11 @@
                 transition: ease-in 1s;
             }
 
+            .wp4{
+                background-image: url("wp5.jpeg");
+                transition: ease-in 1s;
+            }
+
             .back{
                 padding: 4px;
                 text-align: center;
@@ -146,6 +151,9 @@
                 currentWP = 3;
                 document.body.className = "wp3";
              } else if (currentWP == 3){
+                currentWP = 4;
+                document.body.className = "wp4";
+             } else if (currentWP == 4){
                 currentWP = 0;
                 document.body.className = "wp0";
              }
