@@ -24,6 +24,11 @@
                 background-size: cover;
             }
 
+            .nowp{
+                background-color: #fff;
+                transition: ease-in 1s;
+            }
+
             .wp0{
                 background-image: url("wp.jpeg");
                 transition: ease-in 1s;
@@ -138,24 +143,30 @@
             }
 
          var currentWP = 0;
+        var wpCycle = true;
 
          setInterval(function () {
-             if (currentWP == 0)
-             {
-                currentWP = 1;
-                document.body.className = "wp1";
-             } else if (currentWP == 1){
-                currentWP = 2;
-                document.body.className = "wp2";
-             } else if (currentWP == 2){
-                currentWP = 3;
-                document.body.className = "wp3";
-             } else if (currentWP == 3){
-                currentWP = 4;
-                document.body.className = "wp4";
-             } else if (currentWP == 4){
-                currentWP = 0;
-                document.body.className = "wp0";
+             if (wpCycle == true){
+                 if (currentWP == 0)
+                 {
+                    currentWP = 1;
+                    document.body.className = "wp1";
+                 } else if (currentWP == 1){
+                    currentWP = 2;
+                    document.body.className = "wp2";
+                 } else if (currentWP == 2){
+                    currentWP = 3;
+                    document.body.className = "wp3";
+                 } else if (currentWP == 3){
+                    currentWP = 4;
+                    document.body.className = "wp4";
+                 } else if (currentWP == 4){
+                    currentWP = 0;
+                    document.body.className = "wp0";
+                 }
+             } else{
+                 currentWP = 0;
+                document.body.className = "nowp";
              }
          }, 5000); 
 
@@ -166,5 +177,6 @@
                 }, 300);
             }
       </script>
+        <button onclick="wpCycle != wpCycle">wpcyc</button>
     </body>
 </html>
